@@ -8,7 +8,6 @@ import (
 
 // Render は受け取った文書を HTML に変換する
 func Render(ctx context.Context, src string) (string, error) {
-	// TODO: これはサンプル実装 (URL の自動リンク) です
 	var w bytes.Buffer
 	source := []byte(src)
 
