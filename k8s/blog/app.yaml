@@ -66,8 +66,9 @@ spec:
           httpGet:
             path: /server/health
             port: 8080
-          initialDelaySeconds: 3
+          initialDelaySeconds: 6
           periodSeconds: 60 # 開発環境ではアクセスログが大量に流れないように間隔を長くしておく
+          failureThreshold: 10
         securityContext:
           runAsNonRoot: true
           capabilities:

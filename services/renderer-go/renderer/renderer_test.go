@@ -7,9 +7,21 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_Render(t *testing.T) {
-	src := `foo https://google.com/ bar`
+func Test_Render_Header(t *testing.T) {
+	src := "# Test"
 	html, err := Render(context.Background(), src)
 	assert.NoError(t, err)
-	assert.Equal(t, `foo <a href="https://google.com/">https://google.com/</a> bar`, html)
+	assert.Equal(t, "<h1>Test</h1>\n", html)
+}
+func Test_Render_List(t *testing.T) {
+	src := "- list1"
+	html, err := Render(context.Background(), src)
+	assert.NoError(t, err)
+	assert.Equal(t ,"<ul>\n<li>list1</li>\n</ul>\n", html)
+}
+func Test_Render_Link(t *testing.T) {
+	src := "[はてなブックマーク](https://b.hatena.ne.jp/)"
+	html, err := Render(context.Background(), src)
+	assert.NoError(t, err)
+	assert.Equal(t ,"<p><a href=\"https://b.hatena.ne.jp/\">はてなブックマーク</a></p>\n", html)
 }
