@@ -7,9 +7,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_Render(t *testing.T) {
-	src := `foo https://google.com/ bar`
+func Test(t *testing.T) {
+	src := `# Test\n`
 	html, err := Render(context.Background(), src)
 	assert.NoError(t, err)
-	assert.Equal(t, `foo <a href="https://google.com/">https://google.com/</a> bar`, html)
+	assert.Equal(t, `<h1>Test</h1>`, html)
 }
