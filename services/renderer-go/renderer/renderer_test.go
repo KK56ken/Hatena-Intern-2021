@@ -17,11 +17,11 @@ func Test_Render_List(t *testing.T) {
 	src := "- list1"
 	html, err := Render(context.Background(), src)
 	assert.NoError(t, err)
-	assert.Equal(t ,"<ul>\n<li>list1</li>\n</ul>\n", html)
+	assert.Equal(t, "<ul>\n<li>list1</li>\n</ul>\n", html)
 }
 func Test_Render_Link(t *testing.T) {
 	src := "[はてなブックマーク](https://b.hatena.ne.jp/)"
 	html, err := Render(context.Background(), src)
 	assert.NoError(t, err)
-	assert.Equal(t ,"<p><a href=\"https://b.hatena.ne.jp/\">はてなブックマーク</a></p>\n", html)
+	assert.Equal(t, "<p><a href=\"https://b.hatena.ne.jp/\">はてなブックマーク</a></p>\n", html)
 }
